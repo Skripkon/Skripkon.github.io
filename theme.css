@@ -3,18 +3,22 @@ html{background:var(--bg);min-width:320px}body{isolation:isolate;background:tran
 @media(min-width:1500px){.interactive-background{opacity:1}}
 @media(max-width:720px){.wrap{padding:0 20px}nav{font-size:11px}nav div{gap:14px}.mark{padding:7px 9px}header{padding-top:30px;padding-bottom:30px}.portrait{margin:0 0 23px;width:108px;height:140px}h1{font-size:54px;letter-spacing:-2.6px}.role{font-size:18px}.intro{font-size:16px}.eyebrow{font-size:9px;letter-spacing:1.3px}.band{grid-template-columns:1fr;gap:10px;margin-bottom:12px}.band>div{padding:17px 20px}.band>div::before{float:right;margin:8px 0 0 12px}.band strong{font-size:18px}.section{grid-template-columns:1fr;gap:12px;padding:20px 0}.section>.label{position:static;padding-top:0}.section>div:last-child{padding:23px 20px;border-radius:12px}h2{font-size:25px}.skills>div{padding:17px}.contacts{font-size:12px}.contacts a,.contacts>span{padding:6px 9px}footer{gap:14px}.interactive-background{opacity:.65}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-/* Larger images: portrait 4× area, Sber logo 6× area. */
+/* Image sizing and foreground geometry layering. */
 @media screen{
+ .interactive-background{z-index:1}
+ nav,.band,main,footer,header>:not(.portrait){position:relative;z-index:2}
+ .portrait{z-index:0}
+
  header{display:flow-root;padding-right:0}
  header .intro,header .contacts{margin-right:0}
- .portrait{position:static;float:right;width:340px;height:440px;margin:0 0 30px 40px}
+ .portrait{position:relative;top:auto;float:right;width:226.67px;height:293.33px;margin:0 0 30px 40px}
  .org-logo.sber{width:186.16px;height:156.77px;padding:17px;margin:0 0 24px 24px}
 }
 @media screen and (max-width:1000px){
- .portrait{width:216px;height:280px;margin-left:28px}
+ .portrait{width:144px;height:186.67px;margin-left:28px}
  .org-logo.sber{float:none;display:block;margin:0 0 24px;max-width:100%}
 }
 @media screen and (max-width:720px){
- .portrait{float:none;display:block;width:216px;height:280px;margin:0 0 30px;max-width:100%;object-fit:contain}
+ .portrait{float:none;display:block;width:144px;height:186.67px;margin:0 0 30px;max-width:100%;object-fit:contain}
 }
 @media print{:root{--bg:#fff;--ink:#18241e;--muted:#5e6860;--line:#cdd2c7;--accent:#315c3e;--cyan:#315c3e}html,body{background:white;color:var(--ink)}body::before,.interactive-background{display:none}header{padding:12px 120px 12px 0}.portrait{top:12px;width:85px;height:110px;box-shadow:none;border-radius:8px}.role{font-size:16px}.intro{font-size:13px}h1{font-size:37px;letter-spacing:-1px}.contacts a,.contacts>span{padding:0;border:0;background:none}.contacts{font-size:11px}.band{gap:16px;margin:0}.band>div{padding:12px 0;background:none;border:0;backdrop-filter:none}.band>div::before{display:none}.band strong{font-size:15px}.band span{font-size:11px}.section{grid-template-columns:120px minmax(0,1fr);padding:16px 0;gap:20px;border-bottom:1px solid var(--line)}.section>.label{position:static;padding-top:0}.section>div:last-child{padding:0;border:0;background:none;backdrop-filter:none}h2{font-size:20px}h3,.project h3{font-size:15px}.skills{gap:15px}.skills>div{padding:0;border:0;background:none}.skills p,.project p,.paper p:last-child{font-size:11px}.paper{padding:12px;background:none}.project{padding:14px 0}li{margin:7px 0}footer{font-size:10px}}
